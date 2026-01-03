@@ -15,80 +15,92 @@
 *   **Language:** Python 3.10+
 *   **Framework:** FastAPI
 *   **Package Manager:** `uv`
-*   **API Provider:** OpenRouter (accesses models like GPT-4, Claude 3, Gemini, Grok, etc.)
+*   **API Provider:** OpenRouter
 *   **Key Modules:**
-    *   `backend/main.py`: Application entry point and API routes.
+    *   `backend/main.py`: **Entry Point**. Application routes and logic.
     *   `backend/council.py`: Orchestrates the 3-stage deliberation flow.
     *   `backend/openrouter.py`: Handles API interactions with OpenRouter.
-    *   `backend/config.py`: Configuration for model selection and API keys.
+    *   `backend/config.py`: Configuration. **Check this file to see active models.**
+    *   `main.py`: (Root) Stub file, do not use.
 
 ### Frontend
-*   **Framework:** React
-*   **Build Tool:** Vite
-*   **Package Manager:** `npm`
+*   **Framework:** React + Vite
 *   **Styling:** CSS Modules, Light Mode theme.
-*   **Key Components:**
-    *   `components/Stage1.jsx`: Tabbed view of individual model responses.
-    *   `components/Stage2.jsx`: Displays raw peer evaluations and calculated rankings.
-    *   `components/Stage3.jsx`: Shows the final synthesized answer.
+*   **Key Components:** `Stage1.jsx` (Opinions), `Stage2.jsx` (Peer Review), `Stage3.jsx` (Chairman Synthesis).
 
-### Data & Storage
-*   **Storage:** JSON-based filesystem storage in `data/conversations/`.
-*   **Metadata:** Runtime metadata (like peer review mappings) is sent to the frontend but not persisted in the JSON storage.
+### Current Model Configuration (`backend/config.py`)
+*   **Council Members:**
+    *   `openai/gpt-5.2-pro`
+    *   `google/gemini-3-pro-preview`
+    *   `google/gemini-3-flash-preview`
+    *   `anthropic/claude-sonnet-4.5`
+    *   `x-ai/grok-4-fast`
+*   **Chairman:** `google/gemini-3-pro-preview`
 
 ## Setup & Development
 
 ### Prerequisites
-*   **Python:** Managed via `uv`.
-*   **Node.js:** Required for the frontend.
-*   **API Key:** An OpenRouter API key is required.
+1.  **Node.js:** Required for frontend.
+2.  **uv:** Required for Python backend management.
+3.  **OpenRouter API Key:** Required for model access.
 
 ### Configuration
-1.  Create a `.env` file in the root directory:
-    ```env
-    OPENROUTER_API_KEY=sk-or-v1-...
-    ```
-2.  (Optional) Edit `backend/config.py` to change the Council members or Chairman model.
+Create a `.env` file in the `llm-council` directory:
+```env
+OPENROUTER_API_KEY=sk-or-v1-...
+```
 
 ### Installation
 
 **Backend:**
 ```bash
+# From llm-council directory
 uv sync
 ```
 
 **Frontend:**
 ```bash
-cd frontend
+# From llm-council/frontend directory
 npm install
-cd ..
 ```
 
-### Running the Application
+## Running the Application
 
-**Option 1: All-in-one (Bash Script)**
+### Option 1: Windows Manual Start (Recommended)
+Since `start.sh` is a Bash script and may fail with path issues on Windows, run the services manually in two separate terminals.
+
+**Terminal 1 (Backend):**
+```powershell
+# Navigate to llm-council directory
+cd "D:\LLM Council\llm-council"
+uv run python -m backend.main
+```
+*Port: http://localhost:8001*
+
+**Terminal 2 (Frontend):**
+```powershell
+# Navigate to frontend directory
+cd "D:\LLM Council\llm-council\frontend"
+npm run dev
+```
+*Port: http://localhost:5173*
+
+### Option 2: Git Bash
+If using Git Bash, ensure you are **inside** the `llm-council` directory before running the script:
 ```bash
+cd llm-council
 ./start.sh
 ```
+*Note: If `uv` is not in your Git Bash PATH, use Option 1.*
 
-**Option 2: Manual Start**
+## Troubleshooting
 
-*   **Backend (Port 8001):**
-    *   *Must be run from the project root to ensure module resolution works.*
-    ```bash
-    uv run python -m backend.main
-    ```
+*   **`uv: command not found`:** Ensure `uv` is installed and added to your system PATH. If running in Git Bash, you might need to restart the shell or use PowerShell.
+*   **`cd: frontend: No such file`:** You ran the start script from the wrong directory. You must be inside `llm-council/` when executing `./start.sh`.
+*   **Backend Port:** The backend is hardcoded to port **8001**.
+*   **Module Error:** If you see `ModuleNotFoundError`, ensure you are running with `python -m backend.main` from the `llm-council` root, NOT inside the `backend` folder.
 
-*   **Frontend (Port 5173):**
-    ```bash
-    cd frontend
-    npm run dev
-    ```
-
-## Conventions & Guidelines
-
-*   **Module Execution:** Always run the backend as a module (`python -m backend.main`) from the root directory. Do not run `python main.py` directly from inside the `backend` folder.
-*   **Ports:** The backend is explicitly configured to run on **port 8001** to avoid common conflicts on port 8000.
-*   **Imports:** The backend uses relative imports (e.g., `from .config import ...`).
-*   **Formatting:** The project relies on standard Python and JavaScript formatting tools.
-*   **Vibe Code:** The project describes itself as "vibe coded," implying a focus on functionality and experimentation over rigid enterprise patterns, though the structure is clean and modular.
+## Conventions
+*   **Vibe Code:** Focus on functionality and experimentation.
+*   **Imports:** Use relative imports in backend modules.
+*   **Data:** Conversations are stored in `data/conversations/`.
