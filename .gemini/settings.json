@@ -1,0 +1,14 @@
+{
+  "ui": {
+    "footer": {
+      "hideModelInfo": true
+    },
+    "showModelInfoInChat": true
+  },
+  "security": {
+    "enablePermanentToolApproval": true
+  },
+  "general": {
+    "previewFeatures": true
+  }
+}
