@@ -7,9 +7,14 @@ const API_BASE = 'http://localhost:8001';
 export const api = {
   /**
    * List all conversations.
+   * @param {string} search - Optional search query
    */
-  async listConversations() {
-    const response = await fetch(`${API_BASE}/api/conversations`);
+  async listConversations(search = '') {
+    const url = new URL(`${API_BASE}/api/conversations`);
+    if (search) {
+      url.searchParams.append('search', search);
+    }
+    const response = await fetch(url.toString());
     if (!response.ok) {
       throw new Error('Failed to list conversations');
     }

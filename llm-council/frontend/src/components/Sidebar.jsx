@@ -6,7 +6,18 @@ export default function Sidebar({
   currentConversationId,
   onSelectConversation,
   onNewConversation,
+  onSearch,
 }) {
+  const [searchQuery, setSearchQuery] = useState('');
+
+  const handleSearchChange = (e) => {
+    const query = e.target.value;
+    setSearchQuery(query);
+    if (onSearch) {
+      onSearch(query);
+    }
+  };
+
   return (
     <div className="sidebar">
       <div className="sidebar-header">
@@ -14,6 +25,16 @@ export default function Sidebar({
         <button className="new-conversation-btn" onClick={onNewConversation}>
           + New Conversation
         </button>
+      </div>
+
+      <div className="sidebar-search">
+        <input
+          type="text"
+          placeholder="Search Archives..."
+          value={searchQuery}
+          onChange={handleSearchChange}
+          className="search-input"
+        />
       </div>
 
       <div className="conversation-list">

@@ -57,6 +57,15 @@ function App() {
     setCurrentConversationId(id);
   };
 
+  const handleSearch = async (query) => {
+    try {
+      const convs = await api.listConversations(query);
+      setConversations(convs);
+    } catch (error) {
+      console.error('Failed to search conversations:', error);
+    }
+  };
+
   const handleSendMessage = async (content) => {
     if (!currentConversationId) return;
 
@@ -188,6 +197,7 @@ function App() {
         currentConversationId={currentConversationId}
         onSelectConversation={handleSelectConversation}
         onNewConversation={handleNewConversation}
+        onSearch={handleSearch}
       />
       <ChatInterface
         conversation={currentConversation}
