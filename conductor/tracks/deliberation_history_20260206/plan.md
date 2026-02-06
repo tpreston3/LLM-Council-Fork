@@ -10,7 +10,7 @@ This plan follows the project's Test-Driven Development (TDD) workflow and inclu
     - [x] **Sub-task: Verify Coverage**: Ensure backend coverage for new logic is >80%.
 - [ ] **Task: Conductor - User Manual Verification 'Backend Archives API' (Protocol in workflow.md)**
 
-## Phase 2: Frontend History Components
+## Phase 2: Frontend History Components [checkpoint: 0216226]
 
 - [x] **Task: Create History Listing Components** (ee58bf8)
     - [x] **Sub-task: Write Tests (Red Phase)**: Create unit tests for a new `HistorySidebar` or `ArchiveView` component, mocking API calls.
