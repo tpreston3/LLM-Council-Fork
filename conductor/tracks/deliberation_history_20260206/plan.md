@@ -22,9 +22,9 @@ This plan follows the project's Test-Driven Development (TDD) workflow and inclu
 
 ## Phase 3: Integration and Polish
 
-- [ ] **Task: Link History to Main Chat Interface**
+- [~] **Task: Link History to Main Chat Interface**
     - [x] **Sub-task: Write Tests (Red Phase)**: Add integration tests for selecting a history item and having it populate the `App` state.
     - [x] **Sub-task: Implement Feature (Green Phase)**: Connect the `HistorySidebar` to the main `App` component so clicking an item reloads the conversation.
-- [ ] **Task: Council Aesthetic Polish**
+- [~] **Task: Council Aesthetic Polish**
     - [x] **Sub-task: Implement Feature (Green Phase)**: Apply thematic styling (gavels, scrolls, "Archives") to match the product guidelines.
 - [ ] **Task: Conductor - User Manual Verification 'Integration and Polish' (Protocol in workflow.md)**
