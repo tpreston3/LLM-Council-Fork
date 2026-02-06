@@ -12,7 +12,7 @@ This plan follows the project's Test-Driven Development (TDD) workflow and inclu
 
 ## Phase 2: Frontend History Components
 
-- [ ] **Task: Create History Listing Components**
+- [x] **Task: Create History Listing Components** (ee58bf8)
     - [x] **Sub-task: Write Tests (Red Phase)**: Create unit tests for a new `HistorySidebar` or `ArchiveView` component, mocking API calls.
     - [x] **Sub-task: Implement Feature (Green Phase)**: Build the UI to display the list of deliberations fetched from the backend.
 - [ ] **Task: Implement Search and Loading Logic**
