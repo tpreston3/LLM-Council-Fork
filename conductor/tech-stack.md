@@ -10,6 +10,7 @@
 ## Frontend
 - **Framework:** React
 - **Build Tool:** Vite
+- **Testing:** Vitest + React Testing Library
 - **Package Manager:** `npm`
 - **Styling:** CSS Modules
 - **Content Rendering:** `react-markdown` (for model responses)

@@ -16,7 +16,7 @@ A local web application that orchestrates a multi-stage deliberation process (Op
 ## Key Features
 - **OpenRouter Orchestration:** Seamless integration with a wide variety of LLMs through a single API gateway.
 - **3-Stage Deliberation Flow:** Implementation of the "Opinions -> Peer Review -> Synthesis" pipeline.
-- **Local History Management:** Conversation storage using local JSON files for persistence and privacy.
+- **Local History Management:** Comprehensive Archive system to browse, search, and reload past AI deliberations stored as local JSON files for persistence and privacy.
 - **Anonymized Peer Review:** Logic to ensure models judge work based on merit rather than identity.
 
 ## User Experience

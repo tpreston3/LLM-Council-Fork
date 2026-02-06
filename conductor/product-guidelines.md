@@ -11,3 +11,9 @@
 ## Software Quality and Engineering Principles
 - **Iterative & Experimental:** Prioritize rapid prototyping and functionality over rigid, enterprise-grade architecture. The goal is to facilitate experimentation and exploration of AI model side-by-side performance.
 - **Functional Stability:** While architecture is flexible, the core 3-stage deliberation pipeline must remain reliable and easy to modify for new experiments.
+
+## Thematic Glossary
+- **Archives:** Past deliberations and conversation history.
+- **Summon:** To start a new council deliberation.
+- **Records:** Message count or individual data points within a deliberation.
+- **Chamber:** The main chat interface where deliberation happens.
