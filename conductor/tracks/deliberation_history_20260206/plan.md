@@ -20,7 +20,7 @@ This plan follows the project's Test-Driven Development (TDD) workflow and inclu
     - [x] **Sub-task: Implement Feature (Green Phase)**: Add search bar functionality and integrate loading spinners.
 - [ ] **Task: Conductor - User Manual Verification 'Frontend History Components' (Protocol in workflow.md)**
 
-## Phase 3: Integration and Polish
+## Phase 3: Integration and Polish [checkpoint: 02cb681]
 
 - [~] **Task: Link History to Main Chat Interface**
     - [x] **Sub-task: Write Tests (Red Phase)**: Add integration tests for selecting a history item and having it populate the `App` state.
