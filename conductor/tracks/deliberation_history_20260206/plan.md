@@ -4,7 +4,7 @@ This plan follows the project's Test-Driven Development (TDD) workflow and inclu
 
 ## Phase 1: Backend Archives API
 
-- [ ] **Task: Implement Archive Listing and Retrieval API**
+- [~] **Task: Implement Archive Listing and Retrieval API**
     - [ ] **Sub-task: Write Tests (Red Phase)**: Create `backend/tests/test_storage_api.py` and define tests for listing files in `data/conversations/` and reading a specific JSON file.
     - [ ] **Sub-task: Implement Feature (Green Phase)**: Update `backend/storage.py` or create a new router to expose the history listing and retrieval via FastAPI.
     - [ ] **Sub-task: Verify Coverage**: Ensure backend coverage for new logic is >80%.
