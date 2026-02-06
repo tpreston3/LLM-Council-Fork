@@ -2,7 +2,7 @@
 
 This plan follows the project's Test-Driven Development (TDD) workflow and includes mandatory phase verification checkpoints.
 
-## Phase 1: Backend Archives API
+## Phase 1: Backend Archives API [checkpoint: 122591a]
 
 - [x] **Task: Implement Archive Listing and Retrieval API** (ac11487)
     - [x] **Sub-task: Write Tests (Red Phase)**: Create `backend/tests/test_storage_api.py` and define tests for listing files in `data/conversations/` and reading a specific JSON file.
