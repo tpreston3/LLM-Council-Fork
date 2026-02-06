@@ -9,6 +9,7 @@ function App() {
   const [currentConversationId, setCurrentConversationId] = useState(null);
   const [currentConversation, setCurrentConversation] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
+  const [isSearching, setIsSearching] = useState(false);
 
   // Load conversations on mount
   useEffect(() => {
@@ -58,11 +59,14 @@ function App() {
   };
 
   const handleSearch = async (query) => {
+    setIsSearching(true);
     try {
       const convs = await api.listConversations(query);
       setConversations(convs);
     } catch (error) {
       console.error('Failed to search conversations:', error);
+    } finally {
+      setIsSearching(false);
     }
   };
 
@@ -198,6 +202,7 @@ function App() {
         onSelectConversation={handleSelectConversation}
         onNewConversation={handleNewConversation}
         onSearch={handleSearch}
+        isSearching={isSearching}
       />
       <ChatInterface
         conversation={currentConversation}

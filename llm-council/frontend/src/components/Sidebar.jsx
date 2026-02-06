@@ -7,6 +7,7 @@ export default function Sidebar({
   onSelectConversation,
   onNewConversation,
   onSearch,
+  isSearching,
 }) {
   const [searchQuery, setSearchQuery] = useState('');
 
@@ -35,6 +36,7 @@ export default function Sidebar({
           onChange={handleSearchChange}
           className="search-input"
         />
+        {isSearching && <div className="searching-indicator">Searching...</div>}
       </div>
 
       <div className="conversation-list">

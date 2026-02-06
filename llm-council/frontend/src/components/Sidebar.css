@@ -56,6 +56,13 @@
   border-color: #4a90e2;
 }
 
+.searching-indicator {
+  font-size: 11px;
+  color: #4a90e2;
+  margin-top: 4px;
+  text-align: right;
+}
+
 .conversation-list {
   flex: 1;
   overflow-y: auto;
