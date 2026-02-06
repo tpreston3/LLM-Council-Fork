@@ -291,3 +291,6 @@ async def run_council_deliberation(council_id: str, request: QueryRequest):
 - Breaks with **multiple workers** (`--workers 4`) because each process has its own memory
 - Use only for local dev / single-user setup
 
+Feature Completion:
+
+- [ ] All features added
