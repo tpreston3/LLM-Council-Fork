@@ -24,7 +24,7 @@ export default function Sidebar({
       <div className="sidebar-header">
         <h1>LLM Council</h1>
         <button className="new-conversation-btn" onClick={onNewConversation}>
-          + New Conversation
+          📜 Summon New Council
         </button>
       </div>
 
@@ -41,7 +41,7 @@ export default function Sidebar({
 
       <div className="conversation-list">
         {conversations.length === 0 ? (
-          <div className="no-conversations">No conversations yet</div>
+          <div className="no-conversations">The Archives are empty</div>
         ) : (
           conversations.map((conv) => (
             <div
@@ -52,10 +52,10 @@ export default function Sidebar({
               onClick={() => onSelectConversation(conv.id)}
             >
               <div className="conversation-title">
-                {conv.title || 'New Conversation'}
+                🏛️ {conv.title || 'New Deliberation'}
               </div>
               <div className="conversation-meta">
-                {conv.message_count} messages
+                {conv.message_count} Records
               </div>
             </div>
           ))
